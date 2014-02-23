@@ -1,3 +1,5 @@
+## Learning Processing examples adapted to ruby-processing ##
+
 [Learning Processing][] by Daniel Shiffman is an  book that serves as a gentle introduction to 
 the theory and practice of programming. It works by introducing code concepts 
 over the course of 23 chapters, and creating a series of examples that build 
