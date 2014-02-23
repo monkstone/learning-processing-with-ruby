@@ -7,7 +7,7 @@ on them. Daniel Shiffman is a professor of the Interactive Telecommunications Pr
 
 
 
-These samples have been ported over to [Ruby-Processing][]
+These samples have been ported over to [Ruby-Processing][] here.
 
 
 Daniel Shiffman, has written another book [The Nature of Code][] which has also been ported to ruby-processing [here][].
