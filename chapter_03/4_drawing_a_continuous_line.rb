@@ -1,18 +1,13 @@
-require 'ruby-processing'
 
-class DrawingAContinuousLine < Processing::App
-
-  def setup
-    background 255
-    smooth
-  end
-  
-  def draw
-    stroke 0
-    # Draw a line from the previous mouse location to the current location.
-    line pmouse_x, pmouse_y, mouse_x, mouse_y
-  end
-  
+def setup
+  size 200, 200	  
+  background 255
+  smooth 4
 end
 
-DrawingAContinuousLine.new :title => "Drawing A Continuous Line", :width => 200, :height => 200
+def draw
+  stroke 0
+  # Draw a line from the previous mouse location to the current location.
+  line pmouse_x, pmouse_y, mouse_x, mouse_y
+end
+  

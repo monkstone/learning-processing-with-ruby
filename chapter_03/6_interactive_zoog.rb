@@ -1,5 +1,6 @@
 def setup
-  smooth
+  size 200, 200
+  smooth 4
   # The frame rate (like a movie) is set to 30 frames per second
   frame_rate 30
 end

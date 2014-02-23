@@ -1,7 +1,7 @@
 # RGB color is specified by intensity of red, then green, then blue.
 
 size 200, 200
-smooth
+smooth 4
 
 background 255
 no_stroke

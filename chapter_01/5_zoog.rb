@@ -1,6 +1,6 @@
 size 200, 200
 background 255 
-smooth  
+smooth 4 
 ellipse_mode CENTER 
 rect_mode CENTER  
 
