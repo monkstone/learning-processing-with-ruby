@@ -9,7 +9,10 @@ on them. Daniel Shiffman is a professor of the Interactive Telecommunications Pr
 
 These samples have been ported over to [Ruby-Processing][]
 
+
+Daniel Shiffman, has written another book [The Nature of Code][] which has also been ported to ruby-processing [here][].
+
 [Learning Processing]:http://www.learningprocessing.com/
 [Ruby-Processing]:http://wiki.github.com/jashkenas/ruby-processing
-
-http://natureofcode.com/
+[The Nature of Code]:http://natureofcode.com/
+[here]:https://github.com/pierre-pat/The-Nature-of-Code-Examples
