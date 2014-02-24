@@ -1,10 +1,13 @@
-require 'ruby-processing'
+# Introducing the Processing::Proxy module, to access sketch methods/variables 
+
+
+# require 'car'
 
 class CarClassAndCarVariable < Processing::App
 
   def setup
     # Initialize a car object
-    @my_car = Car.new(self)
+    @my_car = Car.new
     rect_mode CENTER
   end
   
@@ -20,25 +23,35 @@ class CarClassAndCarVariable < Processing::App
 end
 
 
-class Car # Define a class below the rest of the program.
+# Define a class below the rest of the program.
+# Or in another file eg car.rb then use require 'car' to include in the sketch
+# 
+# 'include Processing::Proxy' makes methods and variables available
+# to the Car (similar to processings java inner class) except that
+# width and height are excluded, hence global $app is reqd to access them
 
-  def initialize(app)
-    @app = app
-    @c = @app.color 175
-    @xpos = @app.width/2
-    @ypos = @app.height/2
+class Car 
+  include Processing::Proxy
+  
+  attr_reader :width, :height
+  
+  def initialize
+    @width, @height = $app.width, $app.height
+    @c = color 175
+    @xpos = width / 2
+    @ypos = height / 2
     @xspeed = 1
   end
 
   def display_car # A new function of class Car
-    @app.stroke 0
-    @app.fill @c
-    @app.rect @xpos, @ypos, 20, 10
+    stroke 0
+    fill @c
+    rect @xpos, @ypos, 20, 10
   end
 
   def move
     @xpos = @xpos + @xspeed
-    @xpos = 0 if @xpos > @app.width
+    @xpos = 0 if @xpos > width
   end
 end
 

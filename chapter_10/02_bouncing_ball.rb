@@ -1,8 +1,7 @@
-require 'ruby-processing'
 
 class BouncingBallSketch < Processing::App
   def setup
-    smooth
+    smooth 4
     
     # Create two balls.
     @ball_1, @ball_2 = Ball.new(64), Ball.new(32)
@@ -19,10 +18,14 @@ end
 
 
 class Ball
+  include Processing::Proxy
+  attr_reader :width, :height
+  
   def initialize(temp_r)
+    @width, @height = $app.width, $app.height
     @r = temp_r
-    @x, @y = rand($app.width), rand($app.height)
-    @x_speed, @y_speed = (rand * 10 - 5), (rand * 10 - 5)
+    @x, @y = rand(width), rand(height)
+    @x_speed, @y_speed = rand(-5.0 .. 5), rand(-5.0 .. 5)
   end
   
   def move
@@ -30,14 +33,14 @@ class Ball
     @y += @y_speed # Move the ball vertically
     
     # Check for the edges of the sketch
-    @x_speed *= -1 unless (0..$app.width).include?(@x)
-    @y_speed *= -1 unless (0..$app.height).include?(@y)
+    @x_speed *= -1 unless (0..width).include?(@x)
+    @y_speed *= -1 unless (0..height).include?(@y)
   end
   
   def display
-    $app.stroke 0
-    $app.fill 0, 50
-    $app.ellipse @x, @y, @r*2, @r*2
+    stroke 0
+    fill 0, 50
+    ellipse @x, @y, @r*2, @r*2
   end
 end
 

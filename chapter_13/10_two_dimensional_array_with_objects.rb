@@ -1,8 +1,8 @@
-require 'ruby-processing'
+
 
 # Let's start by defining the cell class.
 class Cell
-
+  include Processing::Proxy
   def initialize(x, y, w, h, angle)
     @x, @y = x, y
     @w, @h = w, h
@@ -15,10 +15,10 @@ class Cell
   end
 
   def display
-    $app.stroke 255
+    stroke 255
     # calculate color using sine wave
-    $app.fill 127 + 127 * Math.sin(@angle)
-    $app.rect @x, @y, @w, @h
+    fill 127 + 127 * Math.sin(@angle)
+    rect @x, @y, @w, @h
   end
   
   def oscillate_and_display
@@ -28,27 +28,22 @@ class Cell
 
 end
 
+def setup
+  size 200, 200
+  no_smooth
+  @cols = @rows = 20
 
-# And then the sketch that holds many cells.
-class ArrayWithObjectsSketch < Processing::App
-
-  def setup
-    smooth
-    @cols = @rows = 20
-
-    # initialize array with random values
-    @grid = Array.new(@cols) do |i| 
-      Array.new(@rows) do |j|
-        Cell.new(i*20, j*20, 20, 20, i+j)
-      end
+  # initialize array with random values
+  @grid = Array.new(@cols) do |i| 
+    Array.new(@rows) do |j|
+      Cell.new(i*20, j*20, 20, 20, i+j)
     end
   end
-
-  def draw
-    background 0
-    @grid.each { |array| array.each { |cell| cell.oscillate_and_display } }
-  end
-
 end
 
-ArrayWithObjectsSketch.new :title => "Two Dimensional Array with Objects", :width => 200, :height => 200
+def draw
+  background 0
+  @grid.each { |array| array.each { |cell| cell.oscillate_and_display } }
+end
+
+

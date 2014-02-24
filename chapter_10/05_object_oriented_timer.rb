@@ -1,22 +1,18 @@
-require 'ruby-processing'
 
-class ObjectOrientedTimer < Processing::App
 
-  def setup
-    background 0
-    @timer = Timer.new(5000)
-    @timer.start
-  end
-  
-  def draw
-    if @timer.is_finished?
-      background rand(255)
-      @timer.start
-    end
-  end
-  
+def setup
+  size 200, 200
+  background 0
+  @timer = Timer.new(5000)
+  @timer.start
 end
 
+def draw
+  if @timer.is_finished?
+    background rand(255)
+    @timer.start
+  end
+end
 
 class Timer
   def initialize(total_time)
@@ -26,17 +22,15 @@ class Timer
   
   # When the timer starts it stores the current time in milliseconds
   def start
-    @saved_time = $app.millis
+    @saved_time = millis
   end
   
   # The method is_finished? returns true if 5 seconds have passed.
   # Most of the work of the timer is farmed out to this method.
   def is_finished?
-    passed_time = $app.millis - @saved_time
+    passed_time = millis - @saved_time
     passed_time > @total_time
   end
   
   
 end
-
-ObjectOrientedTimer.new :title => "Object Oriented Timer", :width => 200, :height => 200
