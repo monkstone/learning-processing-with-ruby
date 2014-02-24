@@ -4,7 +4,6 @@ def setup
   @r       = 100                    # The radius of a circle
   text_font create_font("Georgia", 40, true)
   text_align CENTER                 # The text must be centered!
-  smooth 
 end
 
 def draw

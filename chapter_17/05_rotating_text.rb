@@ -18,5 +18,5 @@ def draw
   text @message, 0, 0
 
   # Increase rotation
-  @theta += 0.05;  
+  @theta += 0.05 
 end

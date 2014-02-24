@@ -15,7 +15,7 @@ def draw
   text_align CENTER
   text "This text is centered.", width / 2, 60
   text_align LEFT
-  text "This text is left aligned.", width/2, 100
+  text "This text is left aligned.", width / 2, 100
   text_align RIGHT
   text "This text is right aligned.", width / 2, 140
 end

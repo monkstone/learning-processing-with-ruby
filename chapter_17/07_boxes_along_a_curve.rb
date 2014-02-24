@@ -10,7 +10,7 @@ def draw
   background 255
 
   # Start in the center and draw the circle
-  translate width/2, height/2
+  translate width / 2, height / 2
   no_fill
   stroke 0
   
