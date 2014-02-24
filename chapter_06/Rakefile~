@@ -1,6 +1,5 @@
 # Simple demo Rakefile to autorun samples in current directory
 # adjust path to rp5 executable, and or opts as required
-# here we exclude file with infinite loops
 
 SAMPLES_DIR="./"
 
@@ -16,7 +15,7 @@ def samples_list
   files = []
   Dir.chdir(SAMPLES_DIR)
   Dir.glob("*.rb").each do |file|
-    files << File.join(SAMPLES_DIR, file) unless file =~ /infinite/
+    files << File.join(SAMPLES_DIR, file)
   end
   return files
 end
