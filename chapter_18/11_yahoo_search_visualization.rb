@@ -1,8 +1,8 @@
 #
 # Example 18-11: Yahoo search visualization
 #
-load_library "pyahoo"
-import "pyahoo"
+load_library :pyahoo
+java_import "pyahoo"
 
 # The names to search
 NAMES = %w{ Aliki Cleopatra Penelope Daniel Peter }

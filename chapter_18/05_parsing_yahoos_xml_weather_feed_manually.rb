@@ -47,6 +47,7 @@ end
 # A WeatherGrabber class
 #
 class WeatherGrabber
+  include Processing::Proxy
   attr_reader :temperature, :weather, :zip
   attr_writer :zip
 
@@ -61,7 +62,7 @@ class WeatherGrabber
     # Get all the HTML/XML source code into an array of strings
     # (each line is one element in the array)
     url   = "http://xml.weather.yahoo.com/forecastrss?p=" + @zip
-    lines = $app.load_strings(url)
+    lines = load_strings(url)
 
     # Turn array into one long String
     xml = lines.join # join(lines, ""); 

@@ -56,13 +56,16 @@ end
 # A Class to describe a "Bubble"
 #
 class Bubble
-  attr_reader :r, :g, :diameter
+  include Processing::Proxy
+  
+  attr_reader :width, :height, :r, :g, :diameter
 
   # The constructor initializes color and size
   # Location is filled randomly
   def initialize(r, g, diameter)
-    @x        = $app.random($app.width)
-    @y        = $app.height
+    @width, @height = $app.width, $app.height
+    @x        = random(width)
+    @y        = height
     @r        = r
     @g        = g
     @diameter = diameter
@@ -70,29 +73,29 @@ class Bubble
 
   # True or False if point is inside circle
   def rollover(mx, my)
-    $app.dist(mx, my, @x, @y) < diameter / 2
+    dist(mx, my, @x, @y) < diameter / 2
   end
 
   # Change Bubble variables
   def change
-    @r        = $app.constrain(@r + $app.random(-10, 10), 0, 255)
-    @g        = $app.constrain(@g + $app.random(-10, 10), 0, 255)
-    @diameter = $app.constrain(@diameter + $app.random(-2, 4), 4, 72)
+    @r        = constrain(@r + rand(-10 .. 10), 0, 255)
+    @g        = constrain(@g + rand(-10 .. 10), 0, 255)
+    @diameter = constrain(@diameter + rand(-2 .. 4), 4, 72)
   end
 
   # Display the Bubble
   def display
-    $app.stroke 0
-    $app.fill @r, @g, 255, 150
-    $app.ellipse @x, @y, @diameter, @diameter
+    stroke 0
+    fill @r, @g, 255, 150
+    ellipse @x, @y, @diameter, @diameter
   end
 
   # Move the bubble
   def drift
-    @y += $app.random(-3, -0.1)
-    @x += $app.random(-1, 1)
+    @y += rand(-3 .. -0.1)
+    @x += rand(-1 .. 1.0)
     if @y < -@diameter * 2
-      @y = $app.height + @diameter * 2 
+      @y = height + @diameter * 2 
     end
   end
 end

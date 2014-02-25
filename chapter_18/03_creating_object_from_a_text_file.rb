@@ -32,25 +32,29 @@ end
 # A Class to describe a "Bubble"
 #
 class Bubble
+  include Processing::Proxy
+  
+  attr_reader :width, :height
   # The constructor initializes color and size
   # Location is filled randomly
   def initialize(r, g, diameter)
-    @x, @y    = $app.random($app.width), $app.height
+    @width, @height = $app.width, $app.height
+    @x, @y    = rand(width), height
     @r, @g    = r, g
     @diameter = diameter
   end
 
   # Display the Bubble
   def display
-    $app.stroke 0
-    $app.fill @r, @g, 255, 150
-    $app.ellipse @x, @y, @diameter, @diameter
+    stroke 0
+    fill @r, @g, 255, 150
+    ellipse @x, @y, @diameter, @diameter
   end
 
   # Move the bubble
   def drift
-    @y += $app.random(-3, -0.1)
-    @x += $app.random(-1, 1)
-    @y = $app.height + @diameter * 2 if @y < -@diameter * 2
+    @y += rand(-3 .. -0.1)
+    @x += rand(-1 .. 1.0)
+    @y = height + @diameter * 2 if @y < -@diameter * 2
   end
 end
