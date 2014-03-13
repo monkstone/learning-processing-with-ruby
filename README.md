@@ -7,7 +7,7 @@ on them. Daniel Shiffman is a professor of the Interactive Telecommunications Pr
 
 
 
-These samples have been ported over to [ruby-processing][] here.  Although the sketches stand on their own merit, you should remember that they were originally designed to illustrate the book (so to get the most from them you should [get the book][]). Since they have been translated to more idiomatic ruby, some of the sketches may no longer exactly illustrate the points made in the book. However such sketches will demonstrate the difference between processing and ruby-processing. However you might choose instead to get a more up to date book and, Daniel Shiffman, has written another book [The Nature of Code][] which has also been ported to ruby-processing [here][].
+These samples have been ported over to [ruby-processing][] here.  Although the sketches stand on their own merit, you should remember that they were originally designed to illustrate the book (so to get the most from them you should [get the book][]). Since they have been translated to more idiomatic ruby, some of the sketches may no longer exactly illustrate the points made in the book. However such sketches serve to demonstrate the differences between processing and ruby-processing. However you might choose instead to get a more up to date book and, Daniel Shiffman, has written another book [The Nature of Code][] which has also been ported to ruby-processing [here][].
 
 [Learning Processing]:http://www.learningprocessing.com/
 [ruby-processing]:http://wiki.github.com/jashkenas/ruby-processing
