@@ -14,4 +14,4 @@ These samples have been ported over to [ruby-processing][] here.  Although the s
 [The Nature of Code]:http://natureofcode.com/
 [here]:https://github.com/pierre-pat/The-Nature-of-Code-Examples
 
-[get the book][]:http://www.amazon.com/gp/product/0123736021?ie=UTF8&tag=learniproces-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0123736021
+[get the book]:http://www.amazon.com/gp/product/0123736021?ie=UTF8&tag=learniproces-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0123736021
