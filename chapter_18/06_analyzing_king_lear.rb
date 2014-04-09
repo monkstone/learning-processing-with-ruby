@@ -1,22 +1,24 @@
 #
 # Example 18-6: Analyzing King Lear
 #
+require 'open-uri'
+
 def setup
   size 200, 200
 
   # Load the font
-  text_font load_font("Georgia-Bold-16.vlw")
+  text_font(load_font("#{sketch_path}/data/Georgia-Bold-16.vlw"))
 
   # Where are we in the text (start later b/c Project Gutenberg has 
   # licensing info at beginning)
-  @counter = 1509
+  @counter = 0 #1509
 
-  # Load King Lear into an array of strings
-  url     = "http://www.gutenberg.org/dirs/etext97/1ws3310.txt"
-  rawtext = load_strings(url)
+  # Load King Lear into an array of strings  
+  url     = 'http://www.gutenberg.org/ebooks/1128.txt'
+  everything = open(url) {|f| f.read }
 
   # Join the big array together as one long string
-  everything = rawtext.join
+  puts everything
 
   # All the lines in King Lear are first joined as one big String and 
   # then split up into an array of individual words. 
@@ -32,13 +34,11 @@ def draw
   background 255
 
   # Pick one word from King Lear
-  theword = @kinglear[@counter]
+  theword = @kinglear[@counter].chomp 
 
   # Count how many times that word appears in King Lear
-  total = 0
-  @kinglear.length.times do |i|
-    total += 1 if theword == @kinglear[i]
-  end
+  
+  total = @kinglear.select{|word| theword == word}.length unless theword == ' '
 
   # Display the text and total times the word appears
   fill 0

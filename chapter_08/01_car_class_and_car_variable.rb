@@ -1,26 +1,28 @@
-# Introducing the Processing::Proxy module, to access sketch methods/variables 
-
+# Introducing the Processing::Proxy module
+# Here we mixin this module, to provide access to sketch methods/variables 
+# within the Car class (similar to vanilla processings inner class access)
+# except width and height variables are deliberately excluded
 
 # require 'car'
 
-class CarClassAndCarVariable < Processing::App
 
-  def setup
-    # Initialize a car object
-    @my_car = Car.new
-    rect_mode CENTER
-  end
-  
-  def draw
-    background 255
-    
-    # Operate the car object in draw
-    # by calling object methods using the dots syntax.
-    @my_car.move
-    @my_car.display_car
-  end
-    
+def setup
+  size 200, 200
+  # Initialize a car object
+  @my_car = Car.new
+  rect_mode CENTER
 end
+
+def draw
+  background 255
+  
+  # Operate the car object in draw
+  # by calling object methods using the dots syntax.
+  @my_car.move
+  @my_car.display_car
+end
+    
+
 
 
 # Define a class below the rest of the program.
@@ -55,4 +57,4 @@ class Car
   end
 end
 
-CarClassAndCarVariable.new :title => "Car Class And Car Variable", :width => 200, :height => 200
+

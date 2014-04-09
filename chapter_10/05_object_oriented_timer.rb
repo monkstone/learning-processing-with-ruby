@@ -8,7 +8,7 @@ def setup
 end
 
 def draw
-  if @timer.is_finished?
+  if @timer.finished?
     background rand(255)
     @timer.start
   end
@@ -25,9 +25,9 @@ class Timer
     @saved_time = millis
   end
   
-  # The method is_finished? returns true if 5 seconds have passed.
+  # The method finished? returns true if 5 seconds have passed.
   # Most of the work of the timer is farmed out to this method.
-  def is_finished?
+  def finished?
     passed_time = millis - @saved_time
     passed_time > @total_time
   end

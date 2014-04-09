@@ -1,40 +1,39 @@
 
+def setup
+  size 400, 400
+  smooth 4
+  # Create two balls, one with the default radius.
+  @ball_1, @ball_2 = Ball.new(radius: 64), Ball.new
+end
 
-class BouncingBallsWithIntersection < Processing::App
-  def setup
-    smooth 4
-    # Create two balls.
-    @ball_1, @ball_2 = Ball.new(64), Ball.new(32)
+def draw
+  background 255
+  @ball_1.move
+  @ball_2.move
+  
+  # New! Methods on objects that you define can take each other as arguments.
+  # This is one way to have objects communicate.
+  # In this case they're checking to see if they intersect.
+  if @ball_1.intersect(@ball_2)
+    @ball_1.highlight
+    @ball_2.highlight
   end
   
-  def draw
-    background 255
-    @ball_1.move
-    @ball_2.move
-    
-    # New! Methods on objects that you define can take each other as arguments.
-    # This is one way to have objects communicate.
-    # In this case they're checking to see if they intersect.
-    if @ball_1.intersect(@ball_2)
-      @ball_1.highlight
-      @ball_2.highlight
-    end
-    
-    @ball_1.display
-    @ball_2.display
-  end
+  @ball_1.display
+  @ball_2.display
 end
+
 
 
 class Ball
   include Processing::Proxy
   # We use attr_reader to make the @x, @y and @r instance variables readable by other objects.
-  attr_reader :x, :y, :r, :width, :heigh, :x_speed, :y_speed
+  attr_reader :x, :y, :r, :width, :height, :x_speed, :y_speed
   
-  def initialize(temp_r)
+  def initialize(radius: 32) # a hash parameter for constructor
     @width, @height = $app.width, $app.height
-    @r = temp_r
-    @x, @y = rand(width), rand(height)
+    @r = radius
+    @x, @y = rand(r .. width - r), rand(r .. height - r)
     @x_speed, @y_speed = rand(-5.0 .. 5), rand(-5.0 .. 5)
     @color = color(100, 50)
   end
@@ -43,8 +42,8 @@ class Ball
     @x += x_speed # Move the ball horizontally
     @y += y_speed # Move the ball vertically
     # boundary check
-    @x_speed *= -1 unless (0 .. width).include?(@x)
-    @y_speed *= -1 unless (0 .. height).include?(@y)
+    @x_speed *= -1 unless (r .. width - r).include?(@x)
+    @y_speed *= -1 unless (r .. height - r).include?(@y)
   end
   
   def highlight
@@ -68,4 +67,3 @@ class Ball
   end
 end
 
-BouncingBallsWithIntersection.new :title => "Bouncing Balls with Intersection", :width => 400, :height => 400

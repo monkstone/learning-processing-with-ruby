@@ -18,7 +18,7 @@ def draw
   text @saved, indent, 130  
 end
 
-def keyPressed
+def key_pressed
   # If the return key is pressed, save the String and clear it
   if key == "\n"
     @saved  = @typing

@@ -17,11 +17,11 @@ def draw_circle(x, y, radius)
   ellipse x, y, radius, radius
   # It's important to establish an end-point to recursion, or else it 
   # would go forever. Comment out the following line to break the sketch.
-  return if radius < 2
+  return if radius < 2.0
   # draw_circle calls itself twice, creating a branching effect. 
   # For every circle, a smaller circle is drawn to the left and right.
-  draw_circle x+radius/2, y, radius/2
-  draw_circle x-radius/2, y, radius/2
+  draw_circle x + radius / 2, y, radius / 2.0
+  draw_circle x - radius / 2, y, radius / 2.0
 end
 
 

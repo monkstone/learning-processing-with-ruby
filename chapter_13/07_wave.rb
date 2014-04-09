@@ -1,27 +1,22 @@
+# demonstrate use of lamba and possibility of a more functional style
+# of programming available to ruby users (cf vanilla processing)
 
 def setup
   size 200, 200
-  @theta = 0
+  @sine = ->(angle, offset){sin(angle + offset) * height / 2}
   smooth 4
 end
 
 def draw
   background 255
   # Increment theta (try different values for " angular velocity " here)
-  @theta += 0.02
-  no_stroke
+   no_stroke
   fill 0
-  x = @theta
-
   # times is used to draw all the points along a sine wave (scaled to the pixel dimension of the window).
   20.times do |i|
     # Calculate y value based off of sine function
-    y = sin(x) * height/2
+    
     # Draw an ellipse
-    ellipse i*10, y+height/2, 16, 16
-    # Move along x-axis
-    x += 0.2
+    ellipse(i * 10, @sine.call(i * 0.2, frame_count * 0.02) + height/2, 16, 16)
   end
 end
-
-

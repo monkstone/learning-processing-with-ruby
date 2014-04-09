@@ -18,6 +18,7 @@ def draw
   @data.each_with_index do |data, i|
     # The array of ints is used to set the color and height of each rectangle.
     fill data
-    rect i * 20, 0, 20, data
+    # counter intuitive y values owing to processings poxy coordinate convention
+    rect i * 20, height - data, 20, height 
   end
 end

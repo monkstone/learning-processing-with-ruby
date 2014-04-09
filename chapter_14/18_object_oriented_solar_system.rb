@@ -38,7 +38,7 @@ end
 def setup
   size 200, 200
   smooth 4
-  @planets = Array.new(8) { |i| Planet.new(20 + i * 10, i + 8) }
+  @planets = (0 .. 8).map{ |i| Planet.new(20 + i * 10, i + 8) }
 end
 
 def draw

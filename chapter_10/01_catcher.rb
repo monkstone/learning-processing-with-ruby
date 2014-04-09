@@ -1,15 +1,16 @@
-class CatcherSketch < Processing::App
-  def setup
-    @catcher = Catcher.new(32)
-    smooth 4
-  end
-  
-  def draw
-    background 255
-    @catcher.set_location 
-    @catcher.display
-  end
+
+def setup
+  size 400, 400
+  @catcher = Catcher.new(32)
+  smooth 4
 end
+
+def draw  
+  background 255
+  @catcher.set_location 
+  @catcher.display
+end
+
 
 
 class Catcher
@@ -31,4 +32,3 @@ class Catcher
   end
 end
 
-CatcherSketch.new :title => "CatcherSketch", :width => 400, :height => 400

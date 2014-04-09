@@ -14,7 +14,7 @@ def draw
   translate width/2, height/2
 
   # Loop from 0 to 360 degrees (2*PI radians)
-  0.step(TWO_PI, 0.2) do |i| 
+  0.step(TAU, 0.2) do |i| 
 
     # Push, rotate and draw a line!
     # The transformation state is saved at the beginning of each cycle through the for loop and restored at the end. 
@@ -24,7 +24,7 @@ def draw
     line 0, 0, 100, 0
 
     # Loop from 0 to 360 degrees (2*PI radians)
-    0.step(TWO_PI, 0.5) do |j| 
+    0.step(TAU, 0.5) do |j| 
       # Push, translate, rotate and draw a line!
       push_matrix 
       translate 100, 0

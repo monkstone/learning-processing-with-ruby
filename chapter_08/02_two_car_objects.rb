@@ -1,43 +1,42 @@
 # Introducing the ruby-processing control panel
 
-class TwoCarObjects < Processing::App
-  load_library :control_panel
-  attr_reader :panel, :hide
-  
-  def setup
-    @hide = false
-    control_panel do |c|
-      c.look_feel "Metal"
-      c.slider :red_car_speed, -5..15
-      c.slider :blue_car_speed, -5..15
-      @panel = c
-    end
-    
-    # Initialize car objects
-    @red_car  = Car.new(color(255,0,0), 0, 100)
-    @blue_car  = Car.new(color(0,0,255), 0, 10)
-    @red_car_speed = 1
-    @blue_car_speed = 2
-    rect_mode CENTER
-  end
-  
-  def draw
-    if !hide # only set once
-      panel.visible = true 
-      @hide = true
-    end
+load_library :control_panel
+attr_reader :panel, :hide
 
-    background 255
-  
-    # Operate the car object in draw
-    # by calling object methods using the dots syntax.
-    @red_car.move(@red_car_speed)
-    @red_car.display_car
-    @blue_car.move(@blue_car_speed)
-    @blue_car.display_car
+def setup
+  size 200, 200
+  @hide = false
+  control_panel do |c|
+    c.look_feel "Metal"
+    c.slider :red_car_speed, -5..15
+    c.slider :blue_car_speed, -5..15
+    @panel = c
   end
-    
+  
+  # Initialize car objects
+  @red_car  = Car.new(color(255,0,0), 0, 100)
+  @blue_car  = Car.new(color(0,0,255), 0, 10)
+  @red_car_speed = 1
+  @blue_car_speed = 2
+  rect_mode CENTER
 end
+
+def draw
+  if !hide # only set once
+    panel.visible = true 
+    @hide = true
+  end
+
+  background 255
+
+  # Operate the car object in draw
+  # by calling object methods using the dots syntax.
+  @red_car.move(@red_car_speed)
+  @red_car.display_car
+  @blue_car.move(@blue_car_speed)
+  @blue_car.display_car
+end
+
 
 
 class Car # Define a class below the rest of the program.
@@ -67,5 +66,4 @@ class Car # Define a class below the rest of the program.
   end
 end
 
-TwoCarObjects.new :title => "Car Class And Car Variable", :width => 200, :height => 200
 

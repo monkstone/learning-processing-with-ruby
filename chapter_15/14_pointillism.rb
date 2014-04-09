@@ -1,3 +1,5 @@
+# this sketch requires --nojruby flag (load_image)
+
 
 def setup
   size 200, 200
