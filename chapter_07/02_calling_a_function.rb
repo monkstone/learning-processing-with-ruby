@@ -6,7 +6,6 @@
 def setup
   size 100, 100
   smooth 4
-  draw_black_circle
 end
 
 def draw

@@ -3,15 +3,14 @@ def setup
   smooth 4
   # The frame rate (like a movie) is set to 30 frames per second
   frame_rate 30
+  # Set ellipses and rects to CENTER mode
+  ellipse_mode CENTER 
+  rect_mode CENTER  
 end
 
 def draw
   # draw a white background
   background 255
-  
-  # Set ellipses and rects to CENTER mode
-  ellipse_mode CENTER 
-  rect_mode CENTER  
 
   # Draw Zoog's body
   stroke 0 

@@ -5,7 +5,10 @@
 # just set the width and height when you instantiate the sketch,
 # at the bottom.
 def setup
-  size 200, 200  
+  size 200, 200 
+  # Set CENTER mode
+  ellipse_mode CENTER 
+  rect_mode CENTER 
 end
 
 # Draw loops continuously until you close the sketch window.
@@ -13,9 +16,7 @@ def draw
   # Draw a white background
   background 255 
   
-  # Set CENTER mode
-  ellipse_mode CENTER 
-  rect_mode CENTER  
+ 
 
   # Draw Zoog's body
   stroke 0 

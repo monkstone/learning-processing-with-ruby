@@ -1,13 +1,9 @@
-attr_reader :state, :speed
+attr_reader :square, :speed
 
 def setup
   size 200, 200
-  @x, @y = 0, 0 # x and y locations of the square
-  @speed = 5    # speed of square
-  
-  # A variable to keep track of the square's "state."  
-  # Depending on the value of its state, it will either move right,  down,  left,  or up.
-  @state = 0
+  @square = State.new(0, 0, 0)
+  @speed = 5
 end
 
 def draw
@@ -16,40 +12,45 @@ def draw
   # Display the square.
   stroke 0
   fill 175
-  rect @x, @y, 9, 9
+  rect square.x, square.y, 9, 9
   
   # The following section uses a "case" statement. Cases let you
   # set up different blocks of code for specific values of variables,
   # as an alternative to a long if, elsif, else, kind of structure.
   
   # If the state is 0,  move to the right.
-  case state
+  case square.state
   when 0
-    @x += speed
+    square.x += speed
     # If,  while the state is 0,  it reaches the right side of the window,  change the state to 1
     # Repeat this same logic for all states!?
-    if @x > width - 10
-      @x = width - 10
-      @state = 1
+    if square.x > width - 10
+      square.x = width - 10
+      square.state = 1
     end
   when 1
-    @y += speed
-    if @y > height - 10
-      @y = height - 10
-      @state = 2
+    square.y += speed
+    if square.y > height - 10
+      square.y = height - 10
+      square.state = 2
     end
   when 2
-    @x -= speed
-    if @x < 0
-      @x = 0
-      @state = 3
+    square.x -= speed
+    if square.x < 0
+      square.x = 0
+      square.state = 3
     end
   when 3
-    @y -=  speed
-    if @y < 0
-      @y = 0
-      @state = 0
+    square.y -=  speed
+    if square.y < 0
+      square.y = 0
+      square.state = 0
     end
   end
 
 end
+
+# A ruby Struct is a convenient way to bundle a number of attributes together, 
+# using accessor methods, without having to write an explicit class.
+
+State = Struct.new(:state, :x, :y) 

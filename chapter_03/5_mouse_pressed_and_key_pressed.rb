@@ -4,17 +4,17 @@
 def setup
   size 200, 200	  
   background 255
+  stroke 0
+  fill 175
+  rect_mode CENTER
 end
 
 def draw
-  # Nothing happens in draw in this example!
+  # empty draw loop
 end
 
 # Whenever the mouse is clicked, the code inside mouse_pressed runs.
 def mouse_pressed
-  stroke 0
-  fill 175
-  rect_mode CENTER
   rect mouse_x, mouse_y, 16, 16
 end
 
