@@ -1,7 +1,8 @@
-
+load_library :vecmath
 
 def setup
   size 200, 200, P3D
+  ArcBall.new(self)
 end
 
 def draw
@@ -11,7 +12,7 @@ def draw
   # The pyramid's vertices are drawn relative to a centerpoint.
   # Therefore, we call translate to place the pyramid properly in the window.
   # A slightly better option might be to include the translate in the draw_pyramid function and pass in x,y,z as arguments
-  translate 100, 100, 0 
+  #translate 100, 100, 0 
   draw_pyramid 150
 end
 
