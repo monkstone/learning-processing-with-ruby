@@ -49,7 +49,7 @@ def save_data
 
   # Save to File
   # The same file is overwritten by adding the data folder path to saveStrings().
-  File.open(@file_path, 'w') {|file| file.write(data.join("\n")) }
+  File.open(@file_path, 'w') { |file| file.write(data.join("\n")) }
 end
 
 #
@@ -64,7 +64,7 @@ class Bubble
   # Location is filled randomly
   def initialize(r, g, diameter)
     @width, @height = $app.width, $app.height
-    @x        = random(width)
+    @x        = rand(width)
     @y        = height
     @r        = r
     @g        = g
