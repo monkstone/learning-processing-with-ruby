@@ -2,7 +2,7 @@
 # what kind of thing a variable is before using it.
 
 def setup
-  size 200, 200	  
+  size 200, 200
   count = 0         # count gets assigned 0, an integer (Fixnum)
   letter = 'a'      # letter gets the letter 'a', a String
   d = 132.32        # d gets the decimal 132.32, a Float (floating-point number)

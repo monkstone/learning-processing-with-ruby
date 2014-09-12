@@ -12,7 +12,7 @@ def setup
       # The location in the pixel array is calculated via our formula: 1D pixel location = x + y * width
       loc = x + y * width
       # We use the even-or-odd-ness of the column number (x) to determine whether the color should be black or white.
-      pixels[loc] = (x % 2 == 0) ? color(255) : color(0)
+      pixels[loc] = (x.even? ) ? color(255) : color(0)
     end
   end
   # update the pixels on screen

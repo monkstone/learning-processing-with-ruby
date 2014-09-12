@@ -9,7 +9,7 @@ def setup
   # This array has one element because the file only has one line. 
   # Convert String into an array of integers using ',' as a delimiter
   @data = stuff.first.split(',')
-  @data.map! {|num| num.to_i }
+  @data.map! { |num| num.to_i }
 end
 
 def draw

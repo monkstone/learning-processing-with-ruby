@@ -19,5 +19,3 @@ def draw
   line width / 2, 0, x, height / 2
   ellipse x, height / 2, 16, 16
 end
-
-

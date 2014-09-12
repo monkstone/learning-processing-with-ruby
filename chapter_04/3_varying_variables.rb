@@ -8,7 +8,7 @@ def setup
   size 200, 200
   # initialize two integer object variables.
   @circle_x = 0
-  @circle_y = 100  
+  @circle_y = 100
   smooth 4
 end
 

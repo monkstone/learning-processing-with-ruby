@@ -5,14 +5,14 @@
 attr_reader :change
 
 def setup
-  size 200, 200	  
+  size 200, 200
   # We've got 8 variables now! They're all Floats.
   @circle_x, @circle_y = 0.0, 0.0
   @circle_w, @circle_h = 50.0, 100.0
   @circle_stroke = 255.0
   @circle_fill = 0.0
   @background_color = 255.0
-  @change = 0.5  
+  @change = 0.5
   smooth 4
 end
 

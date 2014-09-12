@@ -1,6 +1,6 @@
 
 def setup
-  size 200, 200	  
+  size 200, 200
   smooth 4
 end
 
@@ -14,7 +14,7 @@ def draw
   
   # The rectangle will always be in the middle of the window
   # if it is located at (width/2, height/2)
-  rect(width/2, height/2, mouse_x + 10, mouse_y + 10)
+  rect(width / 2, height / 2, mouse_x + 10, mouse_y + 10)
 end
 
 def key_pressed

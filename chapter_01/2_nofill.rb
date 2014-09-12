@@ -7,11 +7,11 @@ def setup
   background 255
   # In Ruby, methods and variables are under_scored instead of camelCased
   no_fill
-  stroke 0  
-  ellipse 60, 60, 100, 100 
+  stroke 0
+  ellipse 60, 60, 100, 100
 end
 
 # And the code inside of draw, if there were any, would be drawn over and over.
 def draw
-  
+ 
 end
