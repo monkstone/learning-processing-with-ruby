@@ -12,6 +12,6 @@ These samples have been ported over to [ruby-processing][] here.  Although the s
 [Learning Processing]:http://www.learningprocessing.com/
 [ruby-processing]:http://wiki.github.com/jashkenas/ruby-processing
 [The Nature of Code]:http://natureofcode.com/
-[here]:https://github.com/pierre-pat/The-Nature-of-Code-Examples
+[here]:https://github.com/ruby-processing/The-Nature-of-Code-Examples
 
 [get the book]:http://www.amazon.com/gp/product/0123736021?ie=UTF8&tag=learniproces-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0123736021
