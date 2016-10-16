@@ -15,6 +15,7 @@ These samples have been ported over to [ruby-processing][] here.  Although the s
 def setup # ruby-processing
   size 200, 200
   smooth
+  ....
 end
 
 def settings # JRubyArt
